@@ -2,16 +2,19 @@ import { useState } from 'react';
 import './App.css';
 import { Col, Row, Navbar, Container, Nav } from 'react-bootstrap';
 import data from './data.js';
+import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
 
   let [shoes] = useState(data)
   
-
   return (
-    <div className="App">
-      
-      
+    
+    
+    
+    <div className="App"> 
+
+   
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">Shop&Shop</Navbar.Brand>
@@ -21,12 +24,17 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
-{/* 대문사진 넣기 */}
-    <div className='main-bg'></div>
 
+    <Link to="/">홈</Link>
+    <Link to="/detail">상세페이지</Link>
+
+
+    <Routes>
+      <Route path='/' element={
+      <>
+      <div className='main-bg'></div>
     <Container>
       <Row>
-
         {/* <Card shoes ={shoes[0]} i={1}></Card>
         <Card shoes ={shoes[1]} i={2}></Card>
         <Card shoes ={shoes[2]} i={3}></Card> */}
@@ -47,9 +55,17 @@ function App() {
           <h4>{shoes[2].title}</h4>
           <p>{shoes[2].price}</p>
         </Col> */}
-
       </Row>
     </Container>
+    </>
+    } />
+      <Route path='/detail' element={<div>상세페이지 입니다</div>} />
+    </Routes>
+
+
+
+{/* 대문사진 넣기 */}
+    
 
     </div>
   );
