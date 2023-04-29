@@ -1,26 +1,24 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
-
-// styled component 설명
-// let YellowBtn = styled.button`
-//   background : ${ props => props.bg };
-//   color : ${ props => props.bg === 'blue' ? 'white' : 'black' };
-//   padding : 10px;
-// `
-
-
-
-
+import { useState } from 'react';
 
 
 function Detail(props){
 
+  useEffect(()=>{
+    
+  })
+
+  let [count , setCount] = useState(0);
+
   let {id} = useParams();
-  console.log(id);
+  let 찾은상품 = props.shoes.find(x => x.id === id);
+  
 
   return(
 <div className="container">
-  
+  {count}
+  <button onClick={ ()=>{ setCount(count+1) }}>버튼</button>
   
   <div className="row">
     <div className="col-md-6">
