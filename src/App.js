@@ -4,6 +4,7 @@ import { Col, Row, Navbar, Container, Nav } from 'react-bootstrap';
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/Detail.js';
+import axios from 'axios';
 
 function App() {
 
@@ -51,12 +52,22 @@ function App() {
           </Col> */}
         </Row>
       </Container>
+
+        <button onClick={()=>{
+          axios.get('https://codingapple1.github.io/shop/data2.json')
+          .then((data)=>{ 
+            console.log(data.data);
+          })
+          .catch(()=>{
+            console.log('전송실패')
+          })
+        }}>버튼</button>
       </>
       }/>
       <Route path="/detail/:id" element={<Detail shoes={shoes}/>}/>
       
-      
     </Routes>
+      
     </div>
   );
 }
