@@ -9,14 +9,25 @@ function Detail(props){
     
   })
 
-  let [count , setCount] = useState(0);
-
   let {id} = useParams();
   let 찾은상품 = props.shoes.find(x => x.id === id);
+  let [count , setCount] = useState(0);
+  let [alert , setAlert] = useState(true);
   
+  useEffect(()=>{
+    setTimeout(()=>{ setAlert(false) }, 2000) 
+  }, [])
 
   return(
 <div className="container">
+  {
+    alert === true 
+    ? <div className='alert alert-warning'>
+      2초이내 구매시 할인
+      </div>
+    : null
+  }
+  
   {count}
   <button onClick={ ()=>{ setCount(count+1) }}>버튼</button>
   
