@@ -16,6 +16,8 @@ function Detail(props){
   
   useEffect(()=>{
     setTimeout(()=>{ setAlert(false) }, 2000) 
+    
+
   }, [])
 
   return(
