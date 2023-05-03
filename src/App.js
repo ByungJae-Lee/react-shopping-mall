@@ -19,7 +19,7 @@ function App() {
           <Navbar.Brand href="#home">Shop&Shop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={()=>{navigate('/')}} href="#home">Home</Nav.Link>
-            <Nav.Link onClick={()=>{ navigate('/detail') }} href="#features">Detail</Nav.Link>
+            <Nav.Link onClick={()=>{ navigate('/detail') }} href="0#">Detail</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -30,25 +30,13 @@ function App() {
         <div className='main-bg'></div>
         <Container>
           <Row>
-          {/* <Card shoes ={shoes[0]} i={1}></Card>
-          <Card shoes ={shoes[1]} i={2}></Card>
-          <Card shoes ={shoes[2]} i={3}></Card> */}
           {
             shoes.map((a, i)=>{
               return (
                 <Card shoes={shoes[i]} i={i} key={i}></Card>
               )}
           )}
-          {/* <Col sm>
-            <img src='https://codingapple1.github.io/shop/shoes2.jpg' width='80%'/>
-            <h4>{shoes[1].title}</h4>
-            <p>{shoes[1].price}</p>
-          </Col>
-          <Col sm>
-            <img src='https://codingapple1.github.io/shop/shoes3.jpg' width='80%'/>
-            <h4>{shoes[2].title}</h4>
-            <p>{shoes[2].price}</p>
-          </Col> */}
+          
         </Row>
       </Container>
 
