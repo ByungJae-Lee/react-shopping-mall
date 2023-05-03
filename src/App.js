@@ -8,7 +8,7 @@ import axios from 'axios';
 
 function App() {
 
-  let [shoes] = useState(data)
+  let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
 
   return (
@@ -36,9 +36,8 @@ function App() {
           {
             shoes.map((a, i)=>{
               return (
-                <Card shoes={shoes[i]} i={i}></Card>
-              )
-            }
+                <Card shoes={shoes[i]} i={i} key={i}></Card>
+              )}
           )}
           {/* <Col sm>
             <img src='https://codingapple1.github.io/shop/shoes2.jpg' width='80%'/>
@@ -55,13 +54,12 @@ function App() {
 
         <button onClick={()=>{
           axios.get('https://codingapple1.github.io/shop/data2.json')
-          .then((data)=>{ 
-            console.log(data.data);
+          .then((결과)=>{ 
+            let copy = [...shoes, ...결과.data];
+            setShoes(copy);
           })
-          .catch(()=>{
-            console.log('전송실패')
-          })
-        }}>버튼</button>
+
+        }}>더보기</button>
       </>
       }/>
       <Route path="/detail/:id" element={<Detail shoes={shoes}/>}/>
