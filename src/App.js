@@ -23,7 +23,7 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
-      
+
     <Routes>
       <Route path='/' element={
         <>
@@ -77,5 +77,6 @@ function Card (props) {
     </Col>
   )
 }
+
 
 export default App;
