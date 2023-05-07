@@ -77,4 +77,6 @@ function Card (props) {
     </Col>
   )
 }
+
+
 export default App;
