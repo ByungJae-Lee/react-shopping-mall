@@ -80,3 +80,9 @@ function Card (props) {
 
 
 export default App;
+
+// 리액트 강의 2강
+// html css 과제하나 해보기
+// 11:30 PDS 작성
+
+
