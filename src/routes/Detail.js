@@ -41,17 +41,19 @@ function Detail(props){
     </div>
   </div>
 
+
+
     <Nav variant="tabs" defaultActiveKey="link1">
       <Nav.Item>
-        <Nav.Link onClick={()=>{탭변경(0)}} eventKey="link0">버튼0</Nav.Link>
+        <Nav.Link onClick={()=>{ 탭변경(0) }} eventKey="link0">버튼0</Nav.Link>
       </Nav.Item>
 
       <Nav.Item>
-        <Nav.Link onClick={()=>{탭변경(1)}} eventKey="link-1">버튼1</Nav.Link>
+        <Nav.Link onClick={()=>{ 탭변경(1) }} eventKey="link-1">버튼1</Nav.Link>
       </Nav.Item>
 
       <Nav.Item>
-        <Nav.Link onClick={()=>{탭변경(2)}} eventKey="link-2">버튼2</Nav.Link>
+        <Nav.Link onClick={()=>{ 탭변경(2) }} eventKey="link-2">버튼2</Nav.Link>
       </Nav.Item>
     </Nav>
     <TabContent 탭={탭}/>
