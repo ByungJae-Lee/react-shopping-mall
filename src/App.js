@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import './App.css';
 import { Col, Row, Navbar, Container, Nav } from 'react-bootstrap';
 import data from './data.js';
@@ -6,9 +6,19 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/Detail.js';
 import axios from 'axios';
 
+
+// Context API 만드는 3 step
+// 1. createContext()
+// 2. <Context>로 원하는 컴포넌트 감싸기
+// 3. value={{state1, state2 ...}}
+
+export let Context1 = createContext() // Context API, step 1
+
 function App() {
 
   let [shoes, setShoes] = useState(data);
+  let [재고] = useState([10, 11, 12])
+
   let navigate = useNavigate();
 
   return (
@@ -50,9 +60,14 @@ function App() {
         }}>더보기</button>
       </>
       }/>
-      <Route path="/detail/:id" element={<Detail shoes={shoes}/>}/>
-      
-    </Routes>
+        <Route path="/detail/:id" element={
+        // 2. <Context>로 원하는 컴포넌트 감싸기
+        // 3. value={{state1, state2 ...}}
+        <Context1.Provider value={{ 재고}}>
+         <Detail shoes={shoes}/>
+        </Context1.Provider>
+        }/>
+      </Routes>
       
     </div>
   );
@@ -67,7 +82,8 @@ function About(){
   )
 }
 
-function Card (props) {
+function Card(props) {
+  let navigate = useNavigate();
   return (
     <Col sm>
       <img src={'https://codingapple1.github.io/shop/shoes'+ (props.i+1) +'.jpg'}
@@ -80,9 +96,5 @@ function Card (props) {
 
 
 export default App;
-
-// 리액트 강의 2강
-// html css 과제하나 해보기
-// 11:30 PDS 작성
 
 

@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 
+import {Context1} from './../App.js'
+
 function Detail(props){
 
+  let {재고} useContext(Context1)
 
   let {id} = useParams();
   let 찾은상품 = props.shoes.find(x => x.id === id);
@@ -28,6 +31,8 @@ function Detail(props){
     : null
   }
   
+
+
   <div className="row">
     <div className="col-md-6">
       <img src="https://codingapple1.github.io/shop/shoes1.jpg" 
@@ -65,17 +70,18 @@ function Detail(props){
 function TabContent({탭}) {
   
   let [fade, setFade] = useState('')
+  let {재고} = useContext(Context1)
 
   useEffect(()=>{
-    let a = setTimeout(()=>{ setFade('end')}, 10)
-
+    setTimeout(()=>{ setFade('end')}, 10)
     return () => {
       setFade('')
     }
   }, [탭])
   
- return (<div className={'start ' + fade}>
-  {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭]}
+ return (
+ <div className={'start ' + fade}>
+  { [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭]}
  </div>)
 }
 
