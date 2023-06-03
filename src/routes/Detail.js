@@ -6,7 +6,7 @@ import {Context1} from './../App.js'
 
 function Detail(props){
 
-  let {재고} useContext(Context1)
+  
 
   let {id} = useParams();
   let 찾은상품 = props.shoes.find(x => x.id === id);

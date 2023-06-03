@@ -5,6 +5,7 @@ import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/Detail.js';
 import axios from 'axios';
+import Cart from './routes/Cart.js';
 
 
 // Context API 만드는 3 step
@@ -63,10 +64,11 @@ function App() {
         <Route path="/detail/:id" element={
         // 2. <Context>로 원하는 컴포넌트 감싸기
         // 3. value={{state1, state2 ...}}
-        <Context1.Provider value={{ 재고}}>
          <Detail shoes={shoes}/>
-        </Context1.Provider>
         }/>
+
+        <Route path='/cart' element={ <Cart/> }></Route>
+
       </Routes>
       
     </div>
